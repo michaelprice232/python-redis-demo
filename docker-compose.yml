@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  app:
+    build: .
+    networks:
+      - private_network
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+    networks:
+      - private_network
+
+networks:
+  private_network:
+    name: private_network

@@ -1,0 +1,33 @@
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: app
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: app
+#  template:
+#    metadata:
+#      labels:
+#        app: app
+#    spec:
+#      containers:
+#      - name: app
+#        image: 633681147894.dkr.ecr.eu-west-1.amazonaws.com/mikeapp:1
+#        imagePullPolicy: Always
+
+# Run as a batch job to allow completion, until we add functionality to allow interactive user actions
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: app
+spec:
+  template:
+    spec:
+      containers:
+        - name: app
+          image: 633681147894.dkr.ecr.eu-west-1.amazonaws.com/mikeapp:1
+          imagePullPolicy: Always
+      restartPolicy: Never
+  backoffLimit: 4
