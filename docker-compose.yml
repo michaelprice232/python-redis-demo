@@ -13,6 +13,8 @@ services:
     image: redis
     networks:
       - private_network
+    ports:
+      - 6379:6379   # Allow us to connect to from the host machine as well as the app container
 
 networks:
   private_network:

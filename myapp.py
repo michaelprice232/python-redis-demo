@@ -6,10 +6,12 @@ import redis
 import random
 import sys
 
+# Redis settings
 redis_server_name = 'redis'
 redis_port = 6379
 redis_database_number = 0
 
+# Number of users to simulate logging on and playing the game
 number_of_users = 5
 
 
